@@ -1,0 +1,19 @@
+/* Override styles for a darker theme */
+body {
+    font-family: times new roman; /* Set the main font to Times new roman */
+    color: ; #326500/* Set the font color to a custom shade of green */
+    background-color: #E1E7DD; /* Set the background color to ... */
+}
+
+a {
+    color: #152A00; /* Set the link color to a custom shade of dark green */
+}
+
+/* If the table of contents (TOC) is on the left */
+.toc-left {
+    /* Customize the TOC styles for the left position */
+}
+
+/* Additional customizations can be added as needed */
+
+/* You can further adjust specific elements and classes to achieve the desired dark theme */
