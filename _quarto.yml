@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "[Student/Group Full Name]'s Analytics Lab"
+  title: "Duygu Alsan's Analytics Lab"
   navbar:
     search: true
     left:
@@ -24,9 +24,9 @@ website:
       - icon: github
         href: https://twitter.com
       - icon: twitter
-        href: https://twitter.com
+        href: https://www.instagram.com/duygualsan/
       - icon: linkedin
-        href: https://linkedin.com
+        href: https://www.linkedin.com/in/duygu-alsan-b278891b8/
 
   sidebar:
     - title: "Assignments"
@@ -43,6 +43,9 @@ website:
     border: true
 format:
   html:
+    mainfont : times new roman
+    fontcolor: "#63CA00"
+    linkcolor: "#254B00"
     toc: true
     toc-location: left
     theme: 
