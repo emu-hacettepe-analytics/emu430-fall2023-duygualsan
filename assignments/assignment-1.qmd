@@ -16,6 +16,16 @@ title: "Assignment 1"
 
 **2. In Python, you use the = sign to assign a value to a variable, while in R, you use the \<- sign for assignment.**
 
+-   Code Examples:
+
+    -   In R:
+
+        a \<- c(1,2,3)
+
+    -   In Python:
+
+        a = \[1,2,3\]
+
 **3. Since Python is an object-oriented language, you cannot use dots (.) in variable names to avoid errors. However, in R, there is no such restriction.**
 
 **4. In Python, the first index of an element is 0, while in R, the first element has an index of 1.**
@@ -23,15 +33,25 @@ title: "Assignment 1"
 # (c)
 
 ```{r}
+#| output: false
 install.packages("dslabs", repos = " https://CRAN.R-project.org/package=dslabs")
 library("dslabs")
 data(package = "dslabs")
-list.files(system.file("script", package = "dslabs"))
 data("admissions")
-library(tidyverse)
-zero_example <- ifelse(is.na(na_example), 0, na_example)
+no_example <- ifelse(is.na(na_example), 0, na_example)
+
 
 
 ```
 
-# 
+**Na_Example:**
+
+```{r}
+print(na_example)
+```
+
+**Zero_Example:**
+
+```{r}
+print(no_example)
+```

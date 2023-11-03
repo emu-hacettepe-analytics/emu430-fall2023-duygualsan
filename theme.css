@@ -1,8 +1,8 @@
 /* Override styles for a darker theme */
 body {
     font-family: times new roman; /* Set the main font to Times new roman */
-    color: ; #326500/* Set the font color to a custom shade of green */
-    background-color: #E1E7DD; /* Set the background color to ... */
+    color: ; #000000/* Set the font color to a custom shade of green */
+    background-color: #FFDAB9; /* Set the background color to ... */
 }
 
 a {
