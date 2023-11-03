@@ -4,11 +4,13 @@ sidebar: false
 ---
 
 # Education
-- Kırklareli Science Hihgschool,2016-2020
+
+-   Kırklareli Science Hihgschool,2016-2020
 -   B.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing.
 
 # Work Experience
-- Designer
+
+-   Designer
 
 ## Employements
 
@@ -21,6 +23,7 @@ sidebar: false
 R, Quarto, Git, Python, CAD
 
 # Hobbies
-- reading psychology books
--playing table tennis
--watching sitcom
+
+-   reading psychology books
+-   playing table tennis
+-   watching sitcom

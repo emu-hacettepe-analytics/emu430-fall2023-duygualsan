@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Welcome to My Analytics Lab",
     "section": "",
-    "text": "Hello! My name is xxx xxxx.\nThis is my personal webpage.\nPlease stay tuned to follow my works on data analytics, blog posts, and more.\nThis is our template.\n\n\n\n Back to top"
+    "text": "Bonjour!I am Duygu.\nThis is my personal webpage.\nPlease stay tuned to follow my works on data analytics, blog posts, and more.\nThis is our template.\n\n\n\n Back to top"
   },
   {
     "objectID": "assignments/assignment-2.html",
@@ -25,14 +25,14 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "B.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing."
+    "text": "Kırklareli Science Hihgschool,2016-2020\nB.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing."
   },
   {
     "objectID": "about.html#employements",
     "href": "about.html#employements",
     "title": "About Me",
     "section": "Employements",
-    "text": "Employements\n\nFirm xxx, position xx, year xxx\nFirm yyy, position yyy, year yyy"
+    "text": "Employements\n\nHastay Makina,Technical Drawing Specialist, (2023- )"
   },
   {
     "objectID": "about.html#internships",
@@ -46,14 +46,14 @@
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
+    "text": "(487) Data visualization and plotting with Shiny for Python || Carson Sievert || RStudio - YouTube\nIn this video, it is explained how Shiny, a web development application created using the R programming language, can be used for data visualization. Shiny is known for its user-friendly interface, making it easy to use. While writing R code, you can use side panels and find your data visualized on the right side. After creating a graph, you can make changes, like altering the number of bins in a histogram, without needing to access the code panel. This significantly simplifies the usage.Furthermore, it is mentioned that Shiny makes it easy to observe the impact of one variable on others, particularly in situations where a series of variables are interdependent, known as reactive computation. Another advantage of Shiny is its ability to offer users a wide range of graph types, including the potential to create interactive graphics.\n\n\nR and Python are two languages that can be used interchangeably, and they share many similarities while also having some distinct features. Now, I’ll explain a few of these differences:\n1. When writing code in Python, you cannot identify syntax errors without running the code, whereas in R, it highlights the problematic part even before running the code, allowing you to detect errors.\n2. In Python, you use the = sign to assign a value to a variable, while in R, you use the &lt;- sign for assignment.\n3. Since Python is an object-oriented language, you cannot use dots (.) in variable names to avoid errors. However, in R, there is no such restriction.\n4. In Python, the first index of an element is 0, while in R, the first element has an index of 1."
   },
   {
     "objectID": "assignments.html",
     "href": "assignments.html",
     "title": "My Assignments",
     "section": "",
-    "text": "On this page, I showcase the assignment I conducted for the [term and year, e.g. Fall 2023] EMU 430 Data Analytics course.\nPlease use left menu to navigate through my assignments.\nThe most recent update to this page was made on October 25, 2023\n\n\n\n Back to top"
+    "text": "On this page, I showcase the assignment I conducted for the Fall 2023 EMU 430 Data Analytics course.\nPlease use left menu to navigate through my assignments.\nThe most recent update to this page was made on October 25, 2023\n\n\n\n Back to top"
   },
   {
     "objectID": "posts.html",
@@ -61,5 +61,12 @@
     "title": "My Blog",
     "section": "",
     "text": "This page is under construction.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#b",
+    "href": "assignments/assignment-1.html#b",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "R and Python are two languages that can be used interchangeably, and they share many similarities while also having some distinct features. Now, I’ll explain a few of these differences:\n1. When writing code in Python, you cannot identify syntax errors without running the code, whereas in R, it highlights the problematic part even before running the code, allowing you to detect errors.\n2. In Python, you use the = sign to assign a value to a variable, while in R, you use the &lt;- sign for assignment.\n3. Since Python is an object-oriented language, you cannot use dots (.) in variable names to avoid errors. However, in R, there is no such restriction.\n4. In Python, the first index of an element is 0, while in R, the first element has an index of 1."
   }
 ]
