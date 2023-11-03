@@ -4,22 +4,15 @@ sidebar: false
 ---
 
 # Education
-
--   B.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
+- Kırklareli Science Hihgschool,2016-2020
+-   B.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing.
 
 # Work Experience
+- Designer
 
 ## Employements
 
-1.  Firm xxx, position xx, year xxx
-
-2.  Firm yyy, position yyy, year yyy
-
-## Internships
-
-1.  Firm aaa, position xx, year xxx
-
-2.  Firm bbb, position yyy, year yyy
+1.  Hastay Makina,Technical Drawing Specialist, (2023- )
 
 # Projects
 
@@ -28,3 +21,6 @@ sidebar: false
 R, Quarto, Git, Python
 
 # Hobbies
+reading psychology books
+playing pinpon
+sleeping
