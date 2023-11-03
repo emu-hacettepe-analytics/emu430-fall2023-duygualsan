@@ -3,7 +3,7 @@ title: "Welcome to My Analytics Lab"
 sidebar: false 
 ---
 
-Hello! My name is Duygu Alsan.
+Bonjour!I am Duygu.
 
 This is my personal webpage.
 
