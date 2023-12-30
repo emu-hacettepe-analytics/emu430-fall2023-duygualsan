@@ -1,0 +1,271 @@
+---
+title: "assignment2"
+---
+
+**Creating Data Frame**
+
+I placed Turkish films with more than 2500 votes into a data frame using the following codes.
+
+```{r}
+library(rvest)
+
+url <- c(
+  "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-10-31&num_votes=2500,&country_of_origin=TR&count=250",
+  "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+)
+
+url_df <- data.frame(URL = url)
+
+web_pages <- lapply(url_df$URL, function(url) {
+  read_html(url) 
+})
+
+title_names <- lapply(web_pages, function(page) {
+  title_nodes <- page %>% html_nodes('.ipc-title__text')
+  titles <- html_text(title_nodes)
+
+
+  titles <- gsub("^\\d+\\.\\s", "", titles)
+  
+  titles <- titles[!grepl("Advanced search|Recently viewed", titles)]
+  return(titles)
+})
+
+title_names <- unlist(title_names, recursive = TRUE)
+
+
+print(title_names)
+
+# year
+year_list <- lapply(web_pages, function(page) {
+  year_nodes <- page %>% html_nodes('span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)')
+  year_names <- html_text(year_nodes)
+  year_names <- as.integer(tail(head(year_names, -1), -1))  
+  return(year_names)
+})
+year_list <- unlist(year_list, recursive = TRUE)
+
+# duration
+duration_list <- lapply(web_pages, function(page) {
+  duration_nodes <- page %>% html_nodes('span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(2)')
+  duration_values <- html_text(duration_nodes)
+  
+  saatDakikaToDakika <- function(zaman) {
+    if (grepl("h", zaman) && grepl("m", zaman)) {
+      parcalar <- strsplit(zaman, "h|m")[[1]]
+      return(as.numeric(parcalar[1]) * 60 + as.numeric(parcalar[2]))
+    } else if (grepl("h", zaman)) {
+      return(as.numeric(str_extract(zaman, "\\d+(?=h)")) * 60)
+    } else if (grepl("m", zaman)) {
+      return(as.numeric(str_extract(zaman, "\\d+(?=m)")))
+    } else {
+      return(NA)
+    }
+  }
+  
+  veri_dakika <- sapply(duration_values, saatDakikaToDakika)
+  return(as.integer(veri_dakika))
+})
+duration_list <- unlist(duration_list, recursive = TRUE)
+
+# rating
+rating_list <- lapply(web_pages, function(page) {
+  rating_nodes <- page %>% html_nodes('span.ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating')
+  rating_values <- html_text(rating_nodes)
+  numeric_ratings <- as.numeric(str_extract(rating_values, "\\d+\\.?\\d*"))
+  return(numeric_ratings)
+})
+rating_list <- unlist(rating_list, recursive = TRUE)
+
+# votes
+votes_list <- lapply(web_pages, function(page) {
+  votes_nodes <- page %>% html_nodes('span.ipc-rating-star--voteCount')
+  votes_values <- html_text(votes_nodes)
+  
+  votes_without_K <- gsub("K", "", votes_values)
+  numeric_votes <- as.numeric(str_extract(votes_without_K, "\\d+\\.?\\d*"))
+  return(numeric_votes * 1000)
+})
+votes_list <- unlist(votes_list, recursive = TRUE)
+
+min_length <- min(length(title_names), length(year_list), length(duration_list), length(rating_list), length(votes_list))
+
+
+movie_data <- data.frame(
+  Title = title_names[1:min_length],
+  Year = year_list[1:min_length],
+  Duration = duration_list[1:min_length],
+  Rating = rating_list[1:min_length],
+  Votes = votes_list[1:min_length]
+)
+
+
+print(movie_data)
+
+```
+
+**Finding Top and Bottom 5 Films**
+
+Let's find the top 5 films in the list.
+
+```{r}
+best_5_indices <- order(rating_list, decreasing = TRUE)[1:5]
+
+best_5_ratings <- rating_list[best_5_indices]
+best_5_titles <- title_names[best_5_indices]
+
+best_5_data <- data.frame(
+  Film = best_5_titles,
+  Rating = best_5_ratings
+)
+
+knitr::kable(best_5_data, caption = "Top 5 Film", format = "html")
+
+
+
+```
+
+It seems that Yeşilçam films are very popular. I like them,too.
+
+Now, let's find the bottom 5 film.
+
+```{r}
+worst_5_indices <- order(rating_list, decreasing = FALSE)[1:5]
+
+worst_5_ratings <- rating_list[worst_5_indices]
+worst_5_titles <- title_names[worst_5_indices]
+
+worst_5_data <- data.frame(
+  Film = worst_5_titles,
+  Rating = worst_5_ratings
+)
+
+knitr::kable(worst_5_data, caption = "Bottom 5 Film", format = "html")
+
+```
+
+I haven't even heard the names of these films. I guess that alone is reason enough for them to be in the bottom 5.
+
+**Checking Favorite Films**
+
+One of my favorite Turkish film is G.O.R.A from Cem Yılmaz. I expect it to have a high rating.
+
+```{r}
+
+gora_rating <- movie_data$Rating[movie_data$Title == 'G.O.R.A.']
+
+if (length(gora_rating[!is.na(gora_rating)]) > 0) {
+  print(paste("IMDb Rating for G.O.R.A.:", gora_rating[!is.na(gora_rating)]))
+} else {
+  print("IMDb Rating for G.O.R.A. not available.")
+}
+
+
+```
+
+My prediction came true. 8 is quite a high rating.
+
+**Finding Average Rating for Each Year**
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+ratings_by_year <- movie_data %>%
+  group_by(Year) %>%
+  summarize(AverageRating = mean(Rating))
+
+ggplot(ratings_by_year, aes(x = Year, y = AverageRating)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Avarege Rating For Each Year",
+       x = "Year",
+       y = "Average Rating") +
+  theme_minimal()
+
+```
+
+The film ratings vary significantly from year to year.
+
+**Corelation Between Votes and Rating**
+
+```{r}
+correlation <- cor(movie_data$Votes, movie_data$Rating)
+print(correlation)
+```
+
+Correlation is a value between 0 and 1. If there is a correlation, the value tends to be close to 1, while in the absence of correlation, the value is close to 0. Our value is very close to 0, indicating that there is no correlation between votes and rating. The result makes perfect sense.
+
+**Corelation Between Duration and Ratings**
+
+```{r}
+correlation_duration_rating <- cor(movie_data$Duration, movie_data$Rating)
+
+print(correlation_duration_rating)
+```
+
+Our value is very close to 0, indicating that there is no correlation between duration and rating. The result makes perfect sense.
+
+**Turkish Movies in Top 1000**
+
+Let's create a data frame for this.
+
+```{r}
+library(rvest)
+
+url <- "https://m.imdb.com/search/title/?title_type=feature&groups=top_1000&country_of_origin=TR"
+
+
+page <- read_html(url)
+
+
+titles <- page %>% html_nodes('.ipc-title__text') %>% html_text()
+years_data <- page %>% html_nodes('span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)') %>% html_text()
+
+
+titles <- tail(head(titles, -1), -1)
+titles <- sub("^\\d+\\.\\s", "", titles)  
+
+years <- as.integer(years_data)
+
+
+movie_data_top_1000 <- data.frame(
+  'Title' = titles,
+  'Year' = years
+)
+
+print(movie_data_top_1000)
+```
+
+Now, let's fill in the missing information in the new data frame using the movie_data.
+
+```{r}
+merged_data <- merge(movie_data_top_1000, movie_data, by = "Title", all.x = TRUE)
+
+result_data <- merged_data[c("Title", "Year.x", "Duration", "Rating", "Votes")]
+
+colnames(result_data) <- c("Title", "Year", "Duration", "Rating", "Votes")
+
+print(result_data)
+```
+
+**Comparing The Top 11's**
+
+Finally, let's compare the top 11 Turkish films within the overall top 1000 with the top 11 films among all Turkish films.
+
+```{r}
+best_11_indices <- order(rating_list, decreasing = TRUE)[1:11]
+
+best_11_ratings <- rating_list[best_11_indices]
+best_11_titles <- title_names[best_11_indices]
+
+best_11_data <- data.frame(
+  Film = best_11_titles,
+  Rating = best_11_ratings
+)
+knitr::kable(best_11_data, caption = "Top 11 Film", format = "html")
+
+
+```
+
+The top 11 lists are different from each other. From this, we can understand that the ranking is not solely based on ratings, and the number of votes may be a factor in the ranking.
