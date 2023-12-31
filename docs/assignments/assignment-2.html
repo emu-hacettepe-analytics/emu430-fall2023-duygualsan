@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>[Student/Group Full Name]’s Analytics Lab - Assignment 2</title>
+<title>Duygu Alsan’s Analytics Lab - Assignment 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">[Student/Group Full Name]’s Analytics Lab</span>
+    <span class="navbar-title">Duygu Alsan’s Analytics Lab</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -148,8 +148,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <div class="quarto-navbar-tools ms-auto tools-wide">
     <a href="https://twitter.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://linkedin.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://www.instagram.com/duygualsan/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/duygu-alsan-b278891b8/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
@@ -200,13 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
     </div>
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link active" data-scroll-target="#assignment-2">Assignment 2</a></li>
-  </ul>
-</nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
@@ -217,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 2</h1>
+<div class="quarto-title-block"><div><h1 class="title">Assignment 2</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -232,17 +226,1389 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="assignment-2" class="level1">
-<h1>Assignment 2</h1>
+<p><strong>Creating Data Frame</strong></p>
+<p>I placed Turkish films with more than 2500 votes into a data frame using the following codes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;release_date=2010-01-01,2023-10-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;release_date=,2009-12-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>url_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">URL =</span> url)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>web_pages <span class="ot">&lt;-</span> <span class="fu">lapply</span>(url_df<span class="sc">$</span>URL, <span class="cf">function</span>(url) {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>(url) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>title_names <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  title_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'.ipc-title__text'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  titles <span class="ot">&lt;-</span> <span class="fu">html_text</span>(title_nodes)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  titles <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">s"</span>, <span class="st">""</span>, titles)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  titles <span class="ot">&lt;-</span> titles[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Advanced search|Recently viewed"</span>, titles)]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(titles)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>title_names <span class="ot">&lt;-</span> <span class="fu">unlist</span>(title_names, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(title_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>  [1] "Kuru Otlar Üstüne"                           
+  [2] "Yedinci Kogustaki Mucize"                    
+  [3] "Ölümlü Dünya"                                
+  [4] "Kis Uykusu"                                  
+  [5] "Dag II"                                      
+  [6] "Do Not Disturb"                              
+  [7] "Ayla: The Daughter of War"                   
+  [8] "Kurak Günler"                                
+  [9] "Ahlat Agaci"                                 
+ [10] "Bir Zamanlar Anadolu'da"                     
+ [11] "Dabbe: Cin Çarpmasi"                         
+ [12] "Baskin"                                      
+ [13] "Kedi"                                        
+ [14] "Sen Inandir"                                 
+ [15] "Mucize"                                      
+ [16] "Fort Bliss"                                  
+ [17] "Bergen"                                      
+ [18] "Boga Boga"                                   
+ [19] "Dag"                                         
+ [20] "Iyi Adamin 10 Günü"                          
+ [21] "Cinayet Süsü"                                
+ [22] "Fetih 1453"                                  
+ [23] "The Ottoman Lieutenant"                      
+ [24] "Limonata"                                    
+ [25] "Illegal Hayatlar"                            
+ [26] "Mucize 2: Ask"                               
+ [27] "Kötü Kedi Serafettin"                        
+ [28] "Aaahh Belinda"                               
+ [29] "Siccîn"                                      
+ [30] "Ask Taktikleri"                              
+ [31] "Can Feda"                                    
+ [32] "Insanlar Ikiye Ayrilir"                      
+ [33] "Tereddüt"                                    
+ [34] "Yeralti"                                     
+ [35] "D@bbe: Bir Cin Vakasi"                       
+ [36] "CM101MMXI Fundamentals"                      
+ [37] "Aile Arasinda"                               
+ [38] "Kagittan Hayatlar"                           
+ [39] "Kelebegin Rüyasi"                            
+ [40] "Bizim Için Sampiyon"                         
+ [41] "Sadece Sen"                                  
+ [42] "Cici"                                        
+ [43] "Ikimizin Yerine"                             
+ [44] "Cep Herkülü: Naim Süleymanoglu"              
+ [45] "Kaybedenler Kulübü"                          
+ [46] "Sarmasik"                                    
+ [47] "Yilbasi Gecesi"                              
+ [48] "Bulanti"                                     
+ [49] "Organize Isler: Sazan Sarmali"               
+ [50] "Bursa Bülbülü"                               
+ [51] "Dabbe: Zehr-i Cin"                           
+ [52] "Daha"                                        
+ [53] "Av Mevsimi"                                  
+ [54] "Kelebekler"                                  
+ [55] "Kar ve Ayi"                                  
+ [56] "Geçen Yaz"                                   
+ [57] "Sen Aydinlatirsin Geceyi"                    
+ [58] "Müslüm"                                      
+ [59] "Aykut Eniste"                                
+ [60] "Incir Reçeli"                                
+ [61] "Unutursam Fisilda"                           
+ [62] "Recep Ivedik 7"                              
+ [63] "Pek Yakinda"                                 
+ [64] "Delibal"                                     
+ [65] "Nuh Tepesi"                                  
+ [66] "Kurtlar Vadisi: Vatan"                       
+ [67] "Dügün Dernek"                                
+ [68] "Su ve Ates"                                  
+ [69] "Azizler"                                     
+ [70] "Biz Böyleyiz"                                
+ [71] "Siccin 2"                                    
+ [72] "Panzehir"                                    
+ [73] "Okul tirasi"                                 
+ [74] "Hedefim Sensin"                              
+ [75] "Mutluluk Zamani"                             
+ [76] "Bir Ask Iki Hayat"                           
+ [77] "Celal ile Ceren"                             
+ [78] "Deliler"                                     
+ [79] "Sen Yasamaya Bak"                            
+ [80] "Cingöz Recai"                                
+ [81] "Babamin Kemani"                              
+ [82] "Aci Tatli Eksi"                              
+ [83] "Enes Batur Gerçek Kahraman"                  
+ [84] "Sag Salim"                                   
+ [85] "Behzat Ç.: Seni Kalbime Gömdüm"              
+ [86] "Ask Tesadüfleri Sever"                       
+ [87] "Çiçero"                                      
+ [88] "Annemin Yarasi"                              
+ [89] "Kiz Kardesler"                               
+ [90] "Senden Bana Kalan"                           
+ [91] "Ise Yarar Bir Sey"                           
+ [92] "New York'ta Bes Minare"                      
+ [93] "Kolpaçino: Bomba"                            
+ [94] "Kin"                                         
+ [95] "Kaybedenler Kulübü Yolda"                    
+ [96] "Dabbe (Dab6e)"                               
+ [97] "Dügün Dernek 2: Sünnet"                      
+ [98] "Cumali Ceber: Allah Seni Alsin"              
+ [99] "Aykut Eniste 2"                              
+[100] "Sibel"                                       
+[101] "Kardesim Benim"                              
+[102] "Karakomik Filmler: Kaçamak"                  
+[103] "Asiklar Bayrami"                             
+[104] "Itirazim Var"                                
+[105] "Eltilerin Savasi"                            
+[106] "Benim Dünyam"                                
+[107] "Hadi Be Oglum"                               
+[108] "Karakomik Filmler: Deli"                     
+[109] "Küçük Esnaf"                                 
+[110] "Sen Hiç Ates Böcegi Gördün Mü?"              
+[111] "Arif V 216"                                  
+[112] "Kolonya Cumhuriyeti"                         
+[113] "Cebimdeki Yabanci"                           
+[114] "Dedemin Insanlari"                           
+[115] "Yol Arkadasim"                               
+[116] "Bi Küçük Eylül Meselesi"                     
+[117] "Görümce"                                     
+[118] "Sen Kiminle Dans Ediyorsun"                  
+[119] "Fakat Müzeyyen Bu Derin Bir Tutku"           
+[120] "Behzat Ç. Ankara Yaniyor"                    
+[121] "Tamam miyiz?"                                
+[122] "Iftarlik Gazoz"                              
+[123] "9 Kere Leyla"                                
+[124] "Enes Batur Hayal mi Gerçek mi?"              
+[125] "Selam"                                       
+[126] "Beni Çok Sev"                                
+[127] "Zaman Makinesi 1973"                         
+[128] "Istanbul Kirmizisi"                          
+[129] "Bizans Oyunlari: Geym of Bizans"             
+[130] "Evim Sensin"                                 
+[131] "Eksi Elmalar"                                
+[132] "Karakomik Filmler: Emanet"                   
+[133] "Iyi Oyun"                                    
+[134] "Çok Filim Hareketler Bunlar"                 
+[135] "Yarina Tek Bilet"                            
+[136] "Hükümet Kadin"                               
+[137] "Çakallarla Dans 6"                           
+[138] "Karakomik Filmler: 2 Arada"                  
+[139] "Recep Ivedik 3"                              
+[140] "Vay Arkadas"                                 
+[141] "Sevimli Tehlikeli"                           
+[142] "Baba Parasi"                                 
+[143] "Bayi Toplantisi"                             
+[144] "Kocan Kadar Konus"                           
+[145] "Deli Ask"                                    
+[146] "Hababam Sinifi Yeniden"                      
+[147] "Reis"                                        
+[148] "Ask Sana Benzer"                             
+[149] "Veda"                                        
+[150] "Ask Tesadüfleri Sever 2"                     
+[151] "Türk Isi Dondurma"                           
+[152] "Ali Baba ve 7 Cüceler"                       
+[153] "Abluka"                                      
+[154] "Incir Reçeli 2"                              
+[155] "Börü"                                        
+[156] "Siccîn 3: Cürmü Ask"                         
+[157] "Recep Ivedik 4"                              
+[158] "Bana Masal Anlatma"                          
+[159] "Bir Baba Hindu"                              
+[160] "Eyyvah Eyvah 3"                              
+[161] "Kaçma Birader"                               
+[162] "Gözetleme Kulesi"                            
+[163] "Kurtulus Son Durak"                          
+[164] "Recep Ivedik 6"                              
+[165] "Kutsal Damacana 2: Itmen"                    
+[166] "Çalgi Çengi"                                 
+[167] "Çanakkale Yolun Sonu"                        
+[168] "Deliha 2"                                    
+[169] "Çakallarla Dans"                             
+[170] "Yolun Açik Olsun"                            
+[171] "Sag Salim 2: Sil Bastan"                     
+[172] "Çakallarla Dans 3: Sifir Sikinti"            
+[173] "Bal"                                         
+[174] "Uzun Hikâye"                                 
+[175] "Selam: Bahara Yolculuk"                      
+[176] "Eyyvah Eyvah 2"                              
+[177] "Kara Bela"                                   
+[178] "Sofra Sirlari"                               
+[179] "Çogunluk"                                    
+[180] "Sümela'nin Sifresi: Temel"                   
+[181] "Hükümet Kadin 2"                             
+[182] "Ejder Kapani"                                
+[183] "Ya Sonra"                                    
+[184] "Ailecek Saskiniz"                            
+[185] "Kötü Çocuk"                                  
+[186] "Cumali Ceber 2"                              
+[187] "Yol Ayrimi"                                  
+[188] "Sonsuz Ask"                                  
+[189] "Recep Ivedik 5"                              
+[190] "Tatlim Tatlim"                               
+[191] "Güzelligin Portresi"                         
+[192] "Kayhan"                                      
+[193] "Kafalar Karisik"                             
+[194] "Tepenin Ardi"                                
+[195] "Romantik Komedi 2: Bekarliga Veda"           
+[196] "Müjde"                                       
+[197] "Dedemin Fisi"                                
+[198] "Osman Pazarlama"                             
+[199] "Bizim Hikaye"                                
+[200] "Sen Kimsin?"                                 
+[201] "Kurtlar Vadisi: Filistin"                    
+[202] "Anadolu Kartallari"                          
+[203] "Kolpaçino 3. Devre"                          
+[204] "Yok Artik"                                   
+[205] "Hür Adam: Bediüzzaman Said Nursi"            
+[206] "G.D.O. Kara Kedi"                            
+[207] "Ay Lav Yu"                                   
+[208] "Yol Arkadasim 2"                             
+[209] "Deliha"                                      
+[210] "Eyyvah Eyvah"                                
+[211] "Celal Tan ve Ailesinin Asiri Acikli Hikayesi"
+[212] "Ali Kundilli"                                
+[213] "Berlin Kaplani"                              
+[214] "Sabit Kanca"                                 
+[215] "Gise Memuru"                                 
+[216] "Çakallarla Dans 4"                           
+[217] "Olanlar Oldu"                                
+[218] "Kocan Kadar Konus: Dirilis"                  
+[219] "Birlesen Gönüller"                           
+[220] "Zenne Dancer"                                
+[221] "OHA Diyorum"                                 
+[222] "Borç Harç"                                   
+[223] "Mandira Filozofu"                            
+[224] "Nadide Hayat"                                
+[225] "Çakallarla Dans 5"                           
+[226] "Yozgat Blues"                                
+[227] "Bizi Hatirla"                                
+[228] "Sen Benim HerSeyimsin"                       
+[229] "Bizim Büyük Çaresizligimiz"                  
+[230] "Patron Mutlu Son Istiyor"                    
+[231] "Entelköy Efeköy'e Karsi"                     
+[232] "Niyazi Gül Dörtnala"                         
+[233] "Içimdeki Ses"                                
+[234] "Hadi Insallah"                               
+[235] "Çalgi Çengi Ikimiz"                          
+[236] "Romantik Komedi"                             
+[237] "Çakallarla Dans 2: Hastasiyiz Dede"          
+[238] "Açela"                                       
+[239] "Kod Adi K.O.Z."                              
+[240] "Resistance Is Life"                          
+[241] "Alamet-i Kiyamet"                            
+[242] "15/07 Safak Vakti"                           
+[243] "Deniz ve Günes"                              
+[244] "Sihirbazlik Okulunda Bir Türk"               
+[245] "Guardian of Angels"                          
+[246] "Nefes: Vatan Sagolsun"                       
+[247] "Babam ve Oglum"                              
+[248] "Masumiyet"                                   
+[249] "Kader"                                       
+[250] "Uzak"                                        
+[251] "Eskiya"                                      
+[252] "A.R.O.G"                                     
+[253] "Sevmek Zamani"                               
+[254] "Hababam Sinifi"                              
+[255] "Üç Maymun"                                   
+[256] "Barda"                                       
+[257] "G.O.R.A."                                    
+[258] "Kabadayi"                                    
+[259] "Yazgi"                                       
+[260] "Issiz Adam"                                  
+[261] "Kurtlar Vadisi: Irak"                        
+[262] "Yol"                                         
+[263] "Yahsi Bati"                                  
+[264] "D@bbe"                                       
+[265] "Iklimler"                                    
+[266] "Vizontele"                                   
+[267] "Her Sey Çok Güzel Olacak"                    
+[268] "Pardon"                                      
+[269] "Dünyayi Kurtaran Adam"                       
+[270] "Tosun Pasa"                                  
+[271] "Bekleme Odasi"                               
+[272] "Agir Roman"                                  
+[273] "Tabutta Rövasata"                            
+[274] "Organize Isler"                              
+[275] "Gemide"                                      
+[276] "Selvi Boylum Al Yazmalim"                    
+[277] "Itiraf"                                      
+[278] "Dünyayi Kurtaran Adam'in Oglu"               
+[279] "Üçüncü Sayfa"                                
+[280] "Neredesin Firuze"                            
+[281] "Saban Oglu Saban"                            
+[282] "Mayis Sikintisi"                             
+[283] "Deli Yürek: Bumerang Cehennemi"              
+[284] "Kolpaçino"                                   
+[285] "Susuz Yaz"                                   
+[286] "Recep Ivedik"                                
+[287] "Günesin Oglu"                                
+[288] "Kasaba"                                      
+[289] "D@bbe 2"                                     
+[290] "Sinav"                                       
+[291] "Günesi Gördüm"                               
+[292] "Çöpçüler Krali"                              
+[293] "Yumurta"                                     
+[294] "Baska Dilde Ask"                             
+[295] "Kiskanmak"                                   
+[296] "Muro: Nalet Olsun Içimdeki Insan Sevgisine"  
+[297] "Vavien"                                      
+[298] "Recep Ivedik 2"                              
+[299] "C Blok"                                      
+[300] "Gönül Yarasi"                                
+[301] "Kurtlar Vadisi: Gladio"                      
+[302] "Aaahh Belinda"                               
+[303] "Hokkabaz"                                    
+[304] "Zügürt Aga"                                  
+[305] "Sonbahar"                                    
+[306] "Üç Kagitçi"                                  
+[307] "Muhsin Bey"                                  
+[308] "Anlat Istanbul"                              
+[309] "Duvar"                                       
+[310] "Merakli Köfteci"                             
+[311] "Salako"                                      
+[312] "Çarikli Milyoner"                            
+[313] "Karpuz Kabugundan Gemiler Yapmak"            
+[314] "Neseli Günler"                               
+[315] "Anayurt Oteli"                               
+[316] "Zübük"                                       
+[317] "Kosmos"                                      
+[318] "Süt Kardesler"                               
+[319] "120"                                         
+[320] "Kibar Feyzo"                                 
+[321] "Sürü"                                        
+[322] "Gen"                                         
+[323] "7 Kocali Hürmüz"                             
+[324] "Kahpe Bizans"                                
+[325] "En Büyük Saban"                              
+[326] "Propaganda"                                  
+[327] "Mutluluk"                                    
+[328] "Gölge Oyunu"                                 
+[329] "Tatar Ramazan"                               
+[330] "Beynelmilel"                                 
+[331] "Çilgin Dersane"                              
+[332] "Yazi Tura"                                   
+[333] "Devrim Arabalari"                            
+[334] "Hababam Sinifi Sinifta Kaldi"                
+[335] "Tatli Dillim"                                
+[336] "Vesikali Yarim"                              
+[337] "Kutsal Damacana"                             
+[338] "Sari Mercedes"                               
+[339] "Egreti Gelin"                                
+[340] "Canim Kardesim"                              
+[341] "Dar Alanda Kisa Paslasmalar"                 
+[342] "Mustafa Hakkinda Hersey"                     
+[343] "Musallat"                                    
+[344] "Güz Sancisi"                                 
+[345] "Küçük Kiyamet"                               
+[346] "Hacivat Karagöz Neden Öldürüldü?"            
+[347] "Beyaz Melek"                                 
+[348] "Umut"                                        
+[349] "Uçurtmayi Vurmasinlar"                       
+[350] "Vizontele Tuuba"                             
+[351] "Korkusuz Korkak"                             
+[352] "Ah Nerede"                                   
+[353] "Tokatçi"                                     
+[354] "Maskeli Besler: Intikam Pesinde"             
+[355] "Azize: Bir Laleli Hikayesi"                  
+[356] "Süt"                                         
+[357] "Neseli Hayat"                                
+[358] "Hababam Sinifi Tatilde"                      
+[359] "Insaat"                                      
+[360] "Arabesk"                                     
+[361] "Köyden Indim Sehire"                         
+[362] "Istanbul Kanatlarimin Altinda"               
+[363] "Aile Serefi"                                 
+[364] "Maskeli Besler: Irak"                        
+[365] "Mustafa"                                     
+[366] "Ask Filmlerinin Unutulmaz Yönetmeni"         
+[367] "Turist Ömer Uzay Yolu'nda"                   
+[368] "Okul"                                        
+[369] "Mavi Boncuk"                                 
+[370] "Banker Bilo"                                 
+[371] "Büyü"                                        
+[372] "Bes Vakit"                                   
+[373] "Semum"                                       
+[374] "Keloglan Karaprens'e Karsi"                  
+[375] "Çiplak Vatandas"                             
+[376] "O... Çocuklari"                              
+[377] "Hababam Sinifi Uyaniyor"                     
+[378] "Çiçek Abbas"                                 
+[379] "Kapicilar Krali"                             
+[380] "Gülen Gözler"                                
+[381] "Hayat Var"                                   
+[382] "Pandora'nin Kutusu"                          
+[383] "Polis"                                       
+[384] "Hababam Sinifi Üç Buçuk"                     
+[385] "Yoksul"                                      
+[386] "Son Osmanli Yandim Ali"                      
+[387] "Bizim Aile"                                  
+[388] "Kanli Nigar"                                 
+[389] "11'e 10 Kala"                                
+[390] "Doktor Civanim"                              
+[391] "Davaro: Son Eskiya"                          
+[392] "Kaç Para Kaç"                                
+[393] "Vali"                                        
+[394] "Dondurmam Gaymak"                            
+[395] "Yedi Bela Hüsnü"                             
+[396] "Hababam Sinifi Güle Güle"                    
+[397] "Devlet Kusu"                                 
+[398] "Gülen Adam"                                  
+[399] "Fasulye"                                     
+[400] "Korkuyorum Anne"                             
+[401] "Düttürü Dünya"                               
+[402] "Beyza'nin Kadinlari"                         
+[403] "Araf"                                        
+[404] "Hababam Sinifi Askerde"                      
+[405] "Osmanli Cumhuriyeti"                         
+[406] "Ögretmen"                                    
+[407] "Deli Deli Küpeli"                            
+[408] "Davaci"                                      
+[409] "Sultan"                                      
+[410] "Garip"                                       
+[411] "Sakar Sakir"                                 
+[412] "Salak Milyoner"                              
+[413] "Hababam Sinifi Merhaba"                      
+[414] "Koltuk Belasi"                               
+[415] "Salvar Davasi"                               
+[416] "Filler ve Çimen"                             
+[417] "Ask Tutulmasi"                               
+[418] "O Simdi Asker"                               
+[419] "Sabaniye"                                    
+[420] "Sans Kapiyi Kirinca"                         
+[421] "Varyemez"                                    
+[422] "Hababam Sinifi Dokuz Doguruyor"              
+[423] "Kilibik"                                     
+[424] "On the Way to School"                        
+[425] "Sekerpare"                                   
+[426] "Sosyete Saban"                               
+[427] "Inek Saban"                                  
+[428] "Yüz Numarali Adam"                           
+[429] "Postaci"                                     
+[430] "Hanzo"                                       
+[431] "Namuslu"                                     
+[432] "Kiraci"                                      
+[433] "Ortadirek Saban"                             
+[434] "Katma Deger Saban"                           
+[435] "Ne Olacak Simdi"                             
+[436] "Ulak"                                        
+[437] "Köseyi Dönen Adam"                           
+[438] "Gerzek Saban"                                
+[439] "Son Ders: Ask ve Üniversite"                 
+[440] "Emret Komutanim: Sah Mat"                    
+[441] "Komser Sekspir"                              
+[442] "Talih Kusu"                                  
+[443] "Tarzan Rifki"                                
+[444] "Gol Krali"                                   
+[445] "Saskin Damat"                                
+[446] "Avanak Apti"                                 
+[447] "Milyarder"                                   
+[448] "Oh Olsun"                                    
+[449] "Hirsiz Var!"                                 
+[450] "Japon Isi"                                   
+[451] "Selamsiz Bandosu"                            
+[452] "Gurbetçi Saban"                              
+[453] "Saban Pabucu Yarim"                          
+[454] "Dolap Beygiri"                               
+[455] "Sahte Kabadayi"                              
+[456] "Bekçiler Krali"                              
+[457] "Atla Gel Saban"                              
+[458] "Uzak Ihtimal"                                
+[459] "Umudumuz Saban"                              
+[460] "Maskeli Besler: Kibris"                      
+[461] "Erkek Güzeli Sefil Bilo"                     
+[462] "Sark Bülbülü"                                
+[463] "Dokunmayin Sabanima"                         
+[464] "Sen Dul Saban"                               
+[465] "Iyi Aile Çocugu"                             
+[466] "Kanal-i-zasyon"                              
+[467] "Ibo ile Güllüsah"                            </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># year</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>year_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  year_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  year_names <span class="ot">&lt;-</span> <span class="fu">html_text</span>(year_nodes)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  year_names <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">tail</span>(<span class="fu">head</span>(year_names, <span class="sc">-</span><span class="dv">1</span>), <span class="sc">-</span><span class="dv">1</span>))  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(year_names)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>year_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(year_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># duration</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>duration_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  duration_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(2)'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  duration_values <span class="ot">&lt;-</span> <span class="fu">html_text</span>(duration_nodes)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  saatDakikaToDakika <span class="ot">&lt;-</span> <span class="cf">function</span>(zaman) {</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"h"</span>, zaman) <span class="sc">&amp;&amp;</span> <span class="fu">grepl</span>(<span class="st">"m"</span>, zaman)) {</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      parcalar <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(zaman, <span class="st">"h|m"</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(parcalar[<span class="dv">1</span>]) <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> <span class="fu">as.numeric</span>(parcalar[<span class="dv">2</span>]))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"h"</span>, zaman)) {</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(zaman, <span class="st">"</span><span class="sc">\\</span><span class="st">d+(?=h)"</span>)) <span class="sc">*</span> <span class="dv">60</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"m"</span>, zaman)) {</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(zaman, <span class="st">"</span><span class="sc">\\</span><span class="st">d+(?=m)"</span>)))</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="cn">NA</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  veri_dakika <span class="ot">&lt;-</span> <span class="fu">sapply</span>(duration_values, saatDakikaToDakika)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">as.integer</span>(veri_dakika))</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>duration_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(duration_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># rating</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>rating_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  rating_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating'</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  rating_values <span class="ot">&lt;-</span> <span class="fu">html_text</span>(rating_nodes)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  numeric_ratings <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(rating_values, <span class="st">"</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.?</span><span class="sc">\\</span><span class="st">d*"</span>))</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numeric_ratings)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>rating_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(rating_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co"># votes</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>votes_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  votes_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.ipc-rating-star--voteCount'</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  votes_values <span class="ot">&lt;-</span> <span class="fu">html_text</span>(votes_nodes)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  votes_without_K <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"K"</span>, <span class="st">""</span>, votes_values)</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  numeric_votes <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(votes_without_K, <span class="st">"</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.?</span><span class="sc">\\</span><span class="st">d*"</span>))</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numeric_votes <span class="sc">*</span> <span class="dv">1000</span>)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>votes_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(votes_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>min_length <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">length</span>(title_names), <span class="fu">length</span>(year_list), <span class="fu">length</span>(duration_list), <span class="fu">length</span>(rating_list), <span class="fu">length</span>(votes_list))</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>movie_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">Title =</span> title_names[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> year_list[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="at">Duration =</span> duration_list[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> rating_list[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="at">Votes =</span> votes_list[<span class="dv">1</span><span class="sc">:</span>min_length]</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movie_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                           Title Year Duration Rating  Votes
+1                              Kuru Otlar Üstüne 2019      197    8.1   5100
+2                       Yedinci Kogustaki Mucize 2018      132    8.2  54000
+3                                   Ölümlü Dünya 2014      107    7.6  30000
+4                                     Kis Uykusu 2016      196    8.0  55000
+5                                         Dag II 2023      135    8.2 110000
+6                                 Do Not Disturb 2017      114    6.3   8800
+7                      Ayla: The Daughter of War 2022      125    8.3  43000
+8                                   Kurak Günler 2018      129    7.6  11000
+9                                    Ahlat Agaci 2011      188    8.0  27000
+10                       Bir Zamanlar Anadolu'da 2013      157    7.8  49000
+11                           Dabbe: Cin Çarpmasi 2015      134    6.8   7100
+12                                        Baskin 2016       97    5.8  12000
+13                                          Kedi 2023       79    7.6  16000
+14                                   Sen Inandir 2015      104    5.6   2600
+15                                        Mucize 2014      136    7.6  14000
+16                                    Fort Bliss 2022      116    6.4   3500
+17                                        Bergen 2023      145    6.9   5900
+18                                     Boga Boga 2012      112    5.7   4500
+19                                           Dag 2023       90    7.5  23000
+20                            Iyi Adamin 10 Günü 2019      124    6.5   5200
+21                                  Cinayet Süsü 2012      112    6.7  19000
+22                                    Fetih 1453 2017      165    6.5  59000
+23                        The Ottoman Lieutenant 2015      106    6.4  27000
+24                                      Limonata 2023      110    7.4  14000
+25                              Illegal Hayatlar 2019      105    6.2   4800
+26                                 Mucize 2: Ask 2016      129    7.2   2800
+27                          Kötü Kedi Serafettin 2023       86    7.0   8400
+28                                 Aaahh Belinda 2014       97    5.3   3100
+29                                        Siccîn 2022       96    6.0   5000
+30                                Ask Taktikleri 2018       97    5.3   5800
+31                                      Can Feda 2020      109    5.5   3700
+32                        Insanlar Ikiye Ayrilir 2016      101    6.9   2500
+33                                      Tereddüt 2012      105    6.5   2800
+34                                       Yeralti 2012      107    7.1  10000
+35                         D@bbe: Bir Cin Vakasi 2013      119    5.8   4200
+36                        CM101MMXI Fundamentals 2017      139    9.1  47000
+37                                 Aile Arasinda 2021      124    7.6  26000
+38                             Kagittan Hayatlar 2013       96    6.6  13000
+39                              Kelebegin Rüyasi 2018      138    7.7  24000
+40                           Bizim Için Sampiyon 2014      130    8.2  13000
+41                                    Sadece Sen 2022      105    7.3   5900
+42                                          Cici 2016      151    7.1   5600
+43                               Ikimizin Yerine 2019      126    6.1   7300
+44                Cep Herkülü: Naim Süleymanoglu 2011      141    8.2  14000
+45                            Kaybedenler Kulübü 2015      105    7.5  25000
+46                                      Sarmasik 2022      104    7.9  13000
+47                                Yilbasi Gecesi 2015      142    5.8   4400
+48                                       Bulanti 2019      112    6.2   2700
+49                 Organize Isler: Sazan Sarmali 2023      121    6.0  16000
+50                                 Bursa Bülbülü 2014      120    6.8   6800
+51                             Dabbe: Zehr-i Cin 2017      133    5.9   4300
+52                                          Daha 2010      115    7.0   4400
+53                                    Av Mevsimi 2018      140    7.4  36000
+54                                    Kelebekler 2022      117    7.3  16000
+55                                    Kar ve Ayi 2021       93    6.6   2600
+56                                     Geçen Yaz 2013      101    6.3   3400
+57                      Sen Aydinlatirsin Geceyi 2018      107    7.7  10000
+58                                        Müslüm 2019      136    7.6  20000
+59                                  Aykut Eniste 2011      115    7.0   7400
+60                                  Incir Reçeli 2014       94    6.5  14000
+61                             Unutursam Fisilda 2022      118    7.5  13000
+62                                Recep Ivedik 7 2014      133    5.2   6400
+63                                   Pek Yakinda 2015      134    7.3  35000
+64                                       Delibal 2019      117    6.7  12000
+65                                    Nuh Tepesi 2017      109    7.1   6300
+66                         Kurtlar Vadisi: Vatan 2013      105    3.9   3300
+67                                  Dügün Dernek 2013      106    6.9  24000
+68                                    Su ve Ates 2021      113    6.1   4900
+69                                       Azizler 2020       96    6.0  11000
+70                                  Biz Böyleyiz 2015      121    5.6   5800
+71                                      Siccin 2 2014       93    6.1   3700
+72                                      Panzehir 2021      125    6.9   4100
+73                                   Okul tirasi 2018       85    7.4   3000
+74                                Hedefim Sensin 2017      113    6.2   5000
+75                               Mutluluk Zamani 2019      108    5.9   5800
+76                             Bir Ask Iki Hayat 2013      106    6.1   3100
+77                               Celal ile Ceren 2018      114    3.1  43000
+78                                       Deliler 2022      121    5.1   3500
+79                              Sen Yasamaya Bak 2017      104    5.7   3700
+80                                  Cingöz Recai 2022      113    4.8   4700
+81                                Babamin Kemani 2017      112    6.4   4000
+82                                Aci Tatli Eksi 2019      100    6.0   2800
+83                    Enes Batur Gerçek Kahraman 2012       99    1.4   9500
+84                                     Sag Salim 2011       98    6.3   6500
+85                Behzat Ç.: Seni Kalbime Gömdüm 2011      110    7.5  10000
+86                         Ask Tesadüfleri Sever 2019      118    7.2  19000
+87                                        Çiçero 2016      126    6.5   6400
+88                                Annemin Yarasi 2019      120    7.3   4100
+89                                 Kiz Kardesler 2015      108    7.4   4700
+90                             Senden Bana Kalan 2017      117    6.5   3400
+91                             Ise Yarar Bir Sey 2010      104    7.6   5500
+92                        New York'ta Bes Minare 2011      119    5.7  15000
+93                              Kolpaçino: Bomba 2021       92    5.8   8000
+94                                           Kin 2018      105    5.5   4800
+95                      Kaybedenler Kulübü Yolda 2015       96    5.7   3000
+96                                 Dabbe (Dab6e) 2015      160    5.6   3200
+97                        Dügün Dernek 2: Sünnet 2017      112    6.3  11000
+98                Cumali Ceber: Allah Seni Alsin 2021      100    1.0  39000
+99                                Aykut Eniste 2 2018      115    6.5   3600
+100                                        Sibel 2016       95    6.8   2900
+101                               Kardesim Benim 2019      120    5.8   5000
+102                   Karakomik Filmler: Kaçamak 2022       60    5.5  10000
+103                              Asiklar Bayrami 2014      102    5.7   3000
+104                                 Itirazim Var 2020      110    7.7  14000
+105                             Eltilerin Savasi 2013      118    5.8   5000
+106                                 Benim Dünyam 2018      100    7.5   5700
+107                                Hadi Be Oglum 2020      112    7.0   3800
+108                      Karakomik Filmler: Deli 2016       60    6.5   9100
+109                                  Küçük Esnaf 2021      104    5.6   4600
+110               Sen Hiç Ates Böcegi Gördün Mü? 2018      113    6.2   5500
+111                                   Arif V 216 2017      125    7.0  39000
+112                          Kolonya Cumhuriyeti 2018      110    5.8   5400
+113                            Cebimdeki Yabanci 2011       95    6.8   9400
+114                            Dedemin Insanlari 2017      126    8.0  11000
+115                                Yol Arkadasim 2014      115    6.1   7500
+116                      Bi Küçük Eylül Meselesi 2016      106    7.1  11000
+117                                      Görümce 2017      109    5.0   3500
+118                   Sen Kiminle Dans Ediyorsun 2014      106    5.6   2600
+119            Fakat Müzeyyen Bu Derin Bir Tutku 2013      106    6.6   3700
+120                     Behzat Ç. Ankara Yaniyor 2013       97    7.4   6900
+121                                 Tamam miyiz? 2016       92    7.0   5500
+122                               Iftarlik Gazoz 2020      115    7.3  15000
+123                                 9 Kere Leyla 2018      112    3.7   7900
+124               Enes Batur Hayal mi Gerçek mi? 2013      110    2.0  56000
+125                                        Selam 2021      104    6.2   2600
+126                                 Beni Çok Sev 2014      124    7.0   3100
+127                          Zaman Makinesi 1973 2017      105    6.3   3300
+128                           Istanbul Kirmizisi 2016      110    5.6   6800
+129              Bizans Oyunlari: Geym of Bizans 2012      101    3.7   3200
+130                                  Evim Sensin 2016       91    5.0   6100
+131                                 Eksi Elmalar 2020      114    7.1   7800
+132                    Karakomik Filmler: Emanet 2018       60    5.6   7700
+133                                     Iyi Oyun 2010      114    4.5   4000
+134                  Çok Filim Hareketler Bunlar 2020      104    4.5   5200
+135                             Yarina Tek Bilet 2013       90    5.6   5400
+136                                Hükümet Kadin 2022       99    6.5   9200
+137                            Çakallarla Dans 6 2019      116    5.3   5300
+138                   Karakomik Filmler: 2 Arada 2010       60    6.4  13000
+139                               Recep Ivedik 3 2010       95    4.2  21000
+140                                  Vay Arkadas 2015      100    6.3   2600
+141                            Sevimli Tehlikeli 2020      113    6.0   3900
+142                                  Baba Parasi 2020      116    4.6   3500
+143                              Bayi Toplantisi 2015      114    4.6   4200
+144                            Kocan Kadar Konus 2017      108    6.1   5400
+145                                     Deli Ask 2019      104    5.5   3100
+146                       Hababam Sinifi Yeniden 2017      106    2.2   3800
+147                                         Reis 2015      108    1.0  74000
+148                              Ask Sana Benzer 2010      115    3.8   3500
+149                                         Veda 2020      114    7.2   7500
+150                      Ask Tesadüfleri Sever 2 2019      124    7.1   3200
+151                            Türk Isi Dondurma 2015      120    6.4   5200
+152                        Ali Baba ve 7 Cüceler 2015      114    5.6  21000
+153                                       Abluka 2014      119    7.2   4300
+154                               Incir Reçeli 2 2018      103    6.0   4600
+155                                         Börü 2016      111    6.7   4700
+156                          Siccîn 3: Cürmü Ask 2014      110    6.1   3000
+157                               Recep Ivedik 4 2015      117    3.8  18000
+158                           Bana Masal Anlatma 2016      103    7.3  16000
+159                               Bir Baba Hindu 2014      112    2.6   2600
+160                               Eyyvah Eyvah 3 2016      105    5.9   7900
+161                                Kaçma Birader 2012      107    6.8   3700
+162                             Gözetleme Kulesi 2012       96    7.1   2800
+163                           Kurtulus Son Durak 2019      106    6.2   2700
+164                               Recep Ivedik 6 2010      110    3.0   8600
+165                     Kutsal Damacana 2: Itmen 2011       98    3.0   5500
+166                                  Çalgi Çengi 2013       90    7.0  14000
+167                         Çanakkale Yolun Sonu 2018      101    7.1   5100
+168                                     Deliha 2 2010      106    4.7   2800
+169                              Çakallarla Dans 2022      102    5.6   7300
+170                             Yolun Açik Olsun 2014      119    6.5   2700
+171                      Sag Salim 2: Sil Bastan 2014       98    4.9   3500
+172             Çakallarla Dans 3: Sifir Sikinti 2010      102    5.0   3000
+173                                          Bal 2012      103    7.1   7400
+174                                  Uzun Hikâye 2015      125    7.5   6100
+175                       Selam: Bahara Yolculuk 2011      126    7.0   4200
+176                               Eyyvah Eyvah 2 2015      106    6.6  15000
+177                                    Kara Bela 2017      105    6.7   9600
+178                                Sofra Sirlari 2010      103    6.7   5200
+179                                     Çogunluk 2011      110    7.4   6100
+180                    Sümela'nin Sifresi: Temel 2013       90    3.7   3200
+181                              Hükümet Kadin 2 2010      105    6.1   5200
+182                                 Ejder Kapani 2011      105    6.5   5500
+183                                     Ya Sonra 2018      105    5.2   2600
+184                             Ailecek Saskiniz 2017      113    6.1   7900
+185                                   Kötü Çocuk 2018      125    2.0   2900
+186                               Cumali Ceber 2 2017      100    1.2  10000
+187                                   Yol Ayrimi 2017      150    6.7   4300
+188                                   Sonsuz Ask 2017      114    6.1   2700
+189                               Recep Ivedik 5 2017      114    3.4  18000
+190                                Tatlim Tatlim 2019       95    5.6   3600
+191                          Güzelligin Portresi 2018      127    6.3   3100
+192                                       Kayhan 2018      105    2.2   3600
+193                              Kafalar Karisik 2012       95    3.0   3000
+194                                 Tepenin Ardi 2013       94    7.2   3900
+195            Romantik Komedi 2: Bekarliga Veda 2022      105    5.2   3600
+196                                        Müjde 2016       48    1.2   9900
+197                                 Dedemin Fisi 2016      100    5.6   3900
+198                              Osman Pazarlama 2015      114    3.5   6800
+199                                 Bizim Hikaye 2012       97    5.4  18000
+200                                  Sen Kimsin? 2011      101    5.0   5400
+201                     Kurtlar Vadisi: Filistin 2011      105    6.1   9500
+202                           Anadolu Kartallari 2016      120    6.2   5600
+203                           Kolpaçino 3. Devre 2015       93    4.1   4900
+204                                    Yok Artik 2011       99    5.8   3900
+205             Hür Adam: Bediüzzaman Said Nursi 2013      163    4.6   3600
+206                             G.D.O. Kara Kedi 2010       97    5.3   5400
+207                                    Ay Lav Yu 2018      102    5.5   5200
+208                              Yol Arkadasim 2 2014      116    5.9   3700
+209                                       Deliha 2010      107    4.6   4900
+210                                 Eyyvah Eyvah 2011      104    7.0  21000
+211 Celal Tan ve Ailesinin Asiri Acikli Hikayesi 2015       90    6.4   3400
+212                                 Ali Kundilli 2012      118    5.4   3300
+213                               Berlin Kaplani 2013       98    5.2   7200
+214                                  Sabit Kanca 2010      100    3.1   2700
+215                                  Gise Memuru 2016       96    6.4   4500
+216                            Çakallarla Dans 4 2017      109    4.1   3000
+217                                 Olanlar Oldu 2016      108    6.2   4500
+218                   Kocan Kadar Konus: Dirilis 2014      108    5.7   3500
+219                            Birlesen Gönüller 2011      126    7.5   4100
+220                                 Zenne Dancer 2017      104    7.1   2800
+221                                  OHA Diyorum 2019       90    1.6   7000
+222                                    Borç Harç 2014       90    1.4   4800
+223                             Mandira Filozofu 2015      109    6.6   4800
+224                                 Nadide Hayat 2018      118    6.3   3900
+225                            Çakallarla Dans 5 2013      102    3.8   2600
+226                                 Yozgat Blues 2018       93    6.8   3500
+227                                 Bizi Hatirla 2016      120    7.4   2900
+228                        Sen Benim HerSeyimsin 2011      107    6.2   3000
+229                   Bizim Büyük Çaresizligimiz 2014      102    6.8   4000
+230                     Patron Mutlu Son Istiyor 2011      109    6.0   7100
+231                      Entelköy Efeköy'e Karsi 2015      111    6.6   3600
+232                          Niyazi Gül Dörtnala 2015      106    4.5   3500
+233                                 Içimdeki Ses 2014       93    5.9   3600
+234                                Hadi Insallah 2017       96    5.4   4300
+235                           Çalgi Çengi Ikimiz 2010      116    5.6   4900
+236                              Romantik Komedi 2012       95    5.3   5300
+237           Çakallarla Dans 2: Hastasiyiz Dede 2020      101    4.6   4000
+238                                        Açela 2015       70    2.7   2700
+239                               Kod Adi K.O.Z. 2017      114    1.7  28000
+240                           Resistance Is Life 2016       73    7.7   3300
+241                             Alamet-i Kiyamet 2021       88    4.7   2700
+242                            15/07 Safak Vakti 2018       95    1.2  21000
+243                               Deniz ve Günes 2015       96    4.9   2600
+244                Sihirbazlik Okulunda Bir Türk 2005       91    1.7   3700
+245                           Guardian of Angels 1997       56    7.2   2600
+246                        Nefes: Vatan Sagolsun 2006      128    8.0  35000
+247                               Babam ve Oglum 2002      108    8.2  91000
+248                                    Masumiyet 1996      110    8.1  19000
+249                                        Kader 2008      103    7.8  16000
+250                                         Uzak 1965      110    7.5  22000
+251                                       Eskiya 1975      128    8.1  72000
+252                                      A.R.O.G 2008      127    7.3  45000
+253                                Sevmek Zamani 2007       86    8.0   7100
+254                               Hababam Sinifi 2004       87    9.2  43000
+255                                    Üç Maymun 2007      109    7.3  23000
+256                                        Barda 2001       92    7.0  15000
+257                                     G.O.R.A. 2008      127    8.0  66000
+258                                     Kabadayi 2006      140    7.8  24000
+259                                        Yazgi 1982      119    7.5   6700
+260                                   Issiz Adam 2009      113    6.8  22000
+261                         Kurtlar Vadisi: Irak 2006      122    5.7  18000
+262                                          Yol 2006      107    8.0  14000
+263                                   Yahsi Bati 2001      112    7.4  38000
+264                                        D@bbe 1998      110    4.4   4700
+265                                     Iklimler 2005       97    7.1  14000
+266                                    Vizontele 1982      110    8.0  38000
+267                     Her Sey Çok Güzel Olacak 1976      107    8.1  27000
+268                                       Pardon 2003       99    8.1  23000
+269                        Dünyayi Kurtaran Adam 1997       91    4.4   8000
+270                                   Tosun Pasa 1996       90    8.9  24000
+271                                Bekleme Odasi 2005       92    6.3   3200
+272                                   Agir Roman 1998      120    7.6  12000
+273                             Tabutta Rövasata 1977       75    7.7  11000
+274                               Organize Isler 2001      106    7.4  35000
+275                                       Gemide 2006      102    7.9  16000
+276                     Selvi Boylum Al Yazmalim 1999       90    8.5  17000
+277                                       Itiraf 2004      100    7.0   3900
+278                Dünyayi Kurtaran Adam'in Oglu 1977      110    1.5  17000
+279                                 Üçüncü Sayfa 1999       92    7.3   4300
+280                             Neredesin Firuze 2001      128    7.4  12000
+281                             Saban Oglu Saban 2009       90    8.7  19000
+282                              Mayis Sikintisi 1963      130    7.3   6600
+283               Deli Yürek: Bumerang Cehennemi 2008      123    6.5   4100
+284                                    Kolpaçino 2008       98    6.5  14000
+285                                    Susuz Yaz 1997       90    7.8   5500
+286                                 Recep Ivedik 2009       90    4.8  28000
+287                                 Günesin Oglu 2006       89    7.0   6100
+288                                       Kasaba 2009       85    7.0   6400
+289                                      D@bbe 2 1977       85    3.0   2700
+290                                        Sinav 2007      120    6.6  11000
+291                                Günesi Gördüm 2009      120    6.6  11000
+292                               Çöpçüler Krali 2009       80    8.5  21000
+293                                      Yumurta 2008       97    6.6   5600
+294                              Baska Dilde Ask 2009       98    7.3   7100
+295                                    Kiskanmak 2009       96    6.5   3500
+296   Muro: Nalet Olsun Içimdeki Insan Sevgisine 1994       90    3.9   3200
+297                                       Vavien 2005      100    7.5  14000
+298                               Recep Ivedik 2 2009      107    4.5  22000
+299                                       C Blok 1986       92    6.1   3400
+300                                 Gönül Yarasi 2006      142    7.8  10000
+301                       Kurtlar Vadisi: Gladio 1985       97    6.2   5300
+302                                Aaahh Belinda 2008      100    7.8   3500
+303                                     Hokkabaz 1981      122    7.4  34000
+304                                   Zügürt Aga 1987      101    8.7  16000
+305                                     Sonbahar 2005       99    7.7   6700
+306                                   Üç Kagitçi 1983       88    7.7   6100
+307                                   Muhsin Bey 1976      119    8.4  12000
+308                               Anlat Istanbul 1974       99    7.3   6900
+309                                        Duvar 1983      117    8.0   4400
+310                              Merakli Köfteci 2004       75    7.2   4200
+311                                       Salako 1978       87    7.4   6400
+312                             Çarikli Milyoner 1987       86    6.7   3300
+313             Karpuz Kabugundan Gemiler Yapmak 1980       97    7.8   6500
+314                                Neseli Günler 2009       95    8.7  12000
+315                                Anayurt Oteli 1976      101    7.5   4400
+316                                        Zübük 2008       88    8.5  11000
+317                                       Kosmos 1978      122    7.1   5100
+318                                Süt Kardesler 1978       80    8.8  21000
+319                                          120 2006      114    7.2   7000
+320                                  Kibar Feyzo 2009       83    8.7  17000
+321                                         Sürü 1999      117    8.2   5300
+322                                          Gen 1984      105    4.2   3600
+323                              7 Kocali Hürmüz 1999      122    6.3   5800
+324                                 Kahpe Bizans 2007       97    5.9   7500
+325                               En Büyük Saban 1993       93    6.7   3000
+326                                   Propaganda 1990      120    7.1  10000
+327                                     Mutluluk 2006      105    7.5   7800
+328                                  Gölge Oyunu 2007      103    7.7   3700
+329                                Tatar Ramazan 2004       95    7.9   3400
+330                                  Beynelmilel 2008      106    7.2   8100
+331                               Çilgin Dersane 1975      100    1.9   3900
+332                                    Yazi Tura 1972      102    7.6   6500
+333                             Devrim Arabalari 1968      120    8.0  13000
+334                 Hababam Sinifi Sinifta Kaldi 2007       95    8.9  24000
+335                                 Tatli Dillim 1993       94    7.1   2800
+336                               Vesikali Yarim 2005       89    7.9   3300
+337                              Kutsal Damacana 1973      105    5.1   9800
+338                                Sari Mercedes 2000       90    7.8   3200
+339                                 Egreti Gelin 2004      115    6.2   3100
+340                               Canim Kardesim 2007       85    8.6  10000
+341                  Dar Alanda Kisa Paslasmalar 2009      120    7.3   3300
+342                      Mustafa Hakkinda Hersey 2006      119    7.5   9700
+343                                     Musallat 2006       95    5.9   4400
+344                                  Güz Sancisi 2007      112    6.1   2600
+345                                Küçük Kiyamet 1970       90    6.3   2600
+346             Hacivat Karagöz Neden Öldürüldü? 1989      135    7.5  13000
+347                                  Beyaz Melek 2003      115    6.5   7300
+348                                         Umut 1979      100    8.0   4200
+349                        Uçurtmayi Vurmasinlar 1975       85    8.3   7100
+350                              Vizontele Tuuba 1983      111    6.5  16000
+351                              Korkusuz Korkak 2005       77    8.1   7200
+352                                    Ah Nerede 1999       90    7.6   4800
+353                                      Tokatçi 2008       83    7.7   6200
+354              Maskeli Besler: Intikam Pesinde 2009       89    4.4   6100
+355                   Azize: Bir Laleli Hikayesi 1977       85    6.9   3600
+356                                          Süt 2003      102    6.6   3300
+357                                 Neseli Hayat 1989      100    6.1   7500
+358                       Hababam Sinifi Tatilde 1974       97    8.6  19000
+359                                       Insaat 1996      113    7.2   4000
+360                                      Arabesk 1976       92    8.0   8300
+361                          Köyden Indim Sehire 2007       91    8.3  12000
+362                Istanbul Kanatlarimin Altinda 2008      119    7.0   3800
+363                                  Aile Serefi 1990       95    8.0   3800
+364                         Maskeli Besler: Irak 1973      104    3.8   5300
+365                                      Mustafa 2004      130    6.7   2800
+366          Ask Filmlerinin Unutulmaz Yönetmeni 1975      106    7.6   4200
+367                    Turist Ömer Uzay Yolu'nda 1980       72    7.2   3600
+368                                         Okul 2004      100    4.1   3600
+369                                  Mavi Boncuk 2006       76    7.8   9600
+370                                  Banker Bilo 2008       85    7.6   7400
+371                                         Büyü 2006       95    3.0   3900
+372                                    Bes Vakit 1985      111    7.3   4400
+373                                        Semum 2008      116    5.0   4000
+374                   Keloglan Karaprens'e Karsi 1976      105    1.6   9600
+375                              Çiplak Vatandas 1982       74    7.5   4900
+376                               O... Çocuklari 1976      120    6.4   5400
+377                      Hababam Sinifi Uyaniyor 1977       94    8.7  21000
+378                                  Çiçek Abbas 2008       87    8.0  11000
+379                              Kapicilar Krali 2008       84    8.4  13000
+380                                 Gülen Gözler 2007       97    8.4   7600
+381                                    Hayat Var 2005      121    7.3   3400
+382                           Pandora'nin Kutusu 1986      112    7.2   2900
+383                                        Polis 2007      113    6.6   6200
+384                      Hababam Sinifi Üç Buçuk 1975       98    3.0   8700
+385                                       Yoksul 1981       77    7.3   3000
+386                       Son Osmanli Yandim Ali 2009      126    6.9   6800
+387                                   Bizim Aile 1983       92    8.4   7200
+388                                  Kanli Nigar 1981       81    7.1   3400
+389                                 11'e 10 Kala 1999      110    7.2   2800
+390                               Doktor Civanim 2009       87    6.9   4100
+391                           Davaro: Son Eskiya 2006       94    8.1   9200
+392                                 Kaç Para Kaç 1983      100    7.5   3700
+393                                         Vali 1981       93    7.3   4900
+394                             Dondurmam Gaymak 1980      100    6.6   6500
+395                              Yedi Bela Hüsnü 1990       84    7.7   7500
+396                     Hababam Sinifi Güle Güle 2000       81    6.3   6200
+397                                  Devlet Kusu 2004       79    6.9   2600
+398                                   Gülen Adam 1988       91    6.9   4100
+399                                      Fasulye 2006      105    7.2   2600
+400                              Korkuyorum Anne 2006      128    7.5   3300
+401                                Düttürü Dünya 2005       91    7.3   3000
+402                          Beyza'nin Kadinlari 2008      137    6.2   2800
+403                                         Araf 1988       97    2.4   4300
+404                       Hababam Sinifi Askerde 1986      112    3.3   7800
+405                          Osmanli Cumhuriyeti 1987      100    5.2   7200
+406                                     Ögretmen 1978       89    7.2   2600
+407                             Deli Deli Küpeli 1986       87    7.3   3700
+408                                       Davaci 1977       79    7.1   3400
+409                                       Sultan 1974       88    7.5   3800
+410                                        Garip 2004       96    7.1   4300
+411                                  Sakar Sakir 1990       81    8.0   9000
+412                               Salak Milyoner 1983       84    7.9   7800
+413                       Hababam Sinifi Merhaba 2000      118    3.2   7000
+414                                Koltuk Belasi 2008       85    7.0   2600
+415                                Salvar Davasi 2003       90    7.1   2700
+416                              Filler ve Çimen 1984      115    7.0   2800
+417                                Ask Tutulmasi 2005       99    5.5   3000
+418                                O Simdi Asker 1991      125    4.9   2700
+419                                     Sabaniye 1978       93    6.2   3700
+420                          Sans Kapiyi Kirinca 1983      107    6.3   4700
+421                                     Varyemez 2008       93    6.6   2800
+422               Hababam Sinifi Dokuz Doguruyor 1983       88    7.3   8900
+423                                      Kilibik 1985       85    7.0   3500
+424                         On the Way to School 1978       81    7.4   3100
+425                                    Sekerpare 1978       90    7.9   6700
+426                                Sosyete Saban 1984       92    6.9   3500
+427                                   Inek Saban 1975       71    7.5   4400
+428                            Yüz Numarali Adam 1984       79    7.7   5900
+429                                      Postaci 1987       87    7.0   4600
+430                                        Hanzo 1984       77    6.3   4400
+431                                      Namuslu 1985       93    8.1   7400
+432                                       Kiraci 1979       94    6.7   2700
+433                              Ortadirek Saban 2008       82    7.2   5000
+434                            Katma Deger Saban 1978       85    6.5   4100
+435                              Ne Olacak Simdi 1980       83    7.5   3200
+436                                         Ulak 2008      109    6.8   4800
+437                            Köseyi Dönen Adam 2007       82    7.1   3000
+438                                 Gerzek Saban 2000       76    7.1   3100
+439                  Son Ders: Ask ve Üniversite 1989       99    6.9   2600
+440                     Emret Komutanim: Sah Mat 1986      100    1.5   7000
+441                               Komser Sekspir 1981      113    5.8   3400
+442                                   Talih Kusu 1975       92    7.0   2900
+443                                 Tarzan Rifki 1978       83    6.4   3200
+444                                    Gol Krali 1987       81    6.8   3900
+445                                 Saskin Damat 1974       78    6.8   2700
+446                                  Avanak Apti 2005       86    6.9   4500
+447                                    Milyarder 1987       96    7.5   4600
+448                                     Oh Olsun 1988       86    7.2   3200
+449                                  Hirsiz Var! 1985       96    4.4   3300
+450                                    Japon Isi 1985       89    6.1   3800
+451                             Selamsiz Bandosu 1982      107    7.7   3900
+452                               Gurbetçi Saban 1976       87    6.5   3300
+453                           Saban Pabucu Yarim 1979       93    6.4   3000
+454                                Dolap Beygiri 1984       90    7.2   2700
+455                               Sahte Kabadayi 2009       77    7.6   6300
+456                               Bekçiler Krali 1979       82    7.6   6600
+457                               Atla Gel Saban 2008       83    7.6   5100
+458                                 Uzak Ihtimal 1979       90    7.0   2700
+459                               Umudumuz Saban 1979       83    7.1   3600
+460                       Maskeli Besler: Kibris 1979       87    3.1   5600
+461                      Erkek Güzeli Sefil Bilo 1986       67    6.9   2700
+462                                 Sark Bülbülü 1978       89    7.5   4400
+463                          Dokunmayin Sabanima 2009       79    7.2   4100</code></pre>
 </div>
 </div>
+<p><strong>Finding Top and Bottom 5 Films</strong></p>
+<p>Let’s find the top 5 films in the list.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>best_5_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(rating_list, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>best_5_ratings <span class="ot">&lt;-</span> rating_list[best_5_indices]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>best_5_titles <span class="ot">&lt;-</span> title_names[best_5_indices]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>best_5_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Film =</span> best_5_titles,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> best_5_ratings</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(best_5_data, <span class="at">caption =</span> <span class="st">"Top 5 Film"</span>, <span class="at">format =</span> <span class="st">"html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Top 5 Film</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Film</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hababam Sinifi</td>
+<td style="text-align: right;">9.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CM101MMXI Fundamentals</td>
+<td style="text-align: right;">9.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tosun Pasa</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hababam Sinifi Sinifta Kaldi</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Süt Kardesler</td>
+<td style="text-align: right;">8.8</td>
+</tr>
+</tbody>
+</table>
 
 
-</section>
+</div>
+</div>
+<p>It seems that Yeşilçam films are very popular. I like them,too.</p>
+<p>Now, let’s find the bottom 5 film.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>worst_5_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(rating_list, <span class="at">decreasing =</span> <span class="cn">FALSE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>worst_5_ratings <span class="ot">&lt;-</span> rating_list[worst_5_indices]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>worst_5_titles <span class="ot">&lt;-</span> title_names[worst_5_indices]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>worst_5_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Film =</span> worst_5_titles,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> worst_5_ratings</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(worst_5_data, <span class="at">caption =</span> <span class="st">"Bottom 5 Film"</span>, <span class="at">format =</span> <span class="st">"html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Bottom 5 Film</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Film</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cumali Ceber: Allah Seni Alsin</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reis</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cumali Ceber 2</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Müjde</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15/07 Safak Vakti</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>I haven’t even heard the names of these films. I guess that alone is reason enough for them to be in the bottom 5.</p>
+<p><strong>Checking Favorite Films</strong></p>
+<p>One of my favorite Turkish film is G.O.R.A from Cem Yılmaz. I expect it to have a high rating.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gora_rating <span class="ot">&lt;-</span> movie_data<span class="sc">$</span>Rating[movie_data<span class="sc">$</span>Title <span class="sc">==</span> <span class="st">'G.O.R.A.'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(gora_rating[<span class="sc">!</span><span class="fu">is.na</span>(gora_rating)]) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"IMDb Rating for G.O.R.A.:"</span>, gora_rating[<span class="sc">!</span><span class="fu">is.na</span>(gora_rating)]))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"IMDb Rating for G.O.R.A. not available."</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "IMDb Rating for G.O.R.A.: 8"</code></pre>
+</div>
+</div>
+<p>My prediction came true. 8 is quite a high rating.</p>
+<p><strong>Finding Average Rating for Each Year</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ratings_by_year <span class="ot">&lt;-</span> movie_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">AverageRating =</span> <span class="fu">mean</span>(Rating))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ratings_by_year, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> AverageRating)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Avarege Rating For Each Year"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Rating"</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assignment-2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The film ratings vary significantly from year to year.</p>
+<p><strong>Corelation Between Votes and Rating</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(movie_data<span class="sc">$</span>Votes, movie_data<span class="sc">$</span>Rating)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(correlation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1300241</code></pre>
+</div>
+</div>
+<p>Correlation is a value between 0 and 1. If there is a correlation, the value tends to be close to 1, while in the absence of correlation, the value is close to 0. Our value is very close to 0, indicating that there is no correlation between votes and rating. The result makes perfect sense.</p>
+<p><strong>Corelation Between Duration and Ratings</strong></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>correlation_duration_rating <span class="ot">&lt;-</span> <span class="fu">cor</span>(movie_data<span class="sc">$</span>Duration, movie_data<span class="sc">$</span>Rating)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(correlation_duration_rating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03541454</code></pre>
+</div>
+</div>
+<p>Our value is very close to 0, indicating that there is no correlation between duration and rating. The result makes perfect sense.</p>
+<p><strong>Turkish Movies in Top 1000</strong></p>
+<p>Let’s create a data frame for this.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;groups=top_1000&amp;country_of_origin=TR"</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'.ipc-title__text'</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>years_data <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)'</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">&lt;-</span> <span class="fu">tail</span>(<span class="fu">head</span>(titles, <span class="sc">-</span><span class="dv">1</span>), <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">s"</span>, <span class="st">""</span>, titles)  </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(years_data)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>movie_data_top_1000 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Title'</span> <span class="ot">=</span> titles,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Year'</span> <span class="ot">=</span> years</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movie_data_top_1000)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Title Year
+1   Yedinci Kogustaki Mucize 2019
+2                 Kis Uykusu 2014
+3      Nefes: Vatan Sagolsun 2009
+4  Ayla: The Daughter of War 2017
+5             Babam ve Oglum 2005
+6                Ahlat Agaci 2018
+7    Bir Zamanlar Anadolu'da 2011
+8                     Eskiya 1996
+9                   G.O.R.A. 2004
+10                 Vizontele 2001
+11  Her Sey Çok Güzel Olacak 1998</code></pre>
+</div>
+</div>
+<p>Now, let’s fill in the missing information in the new data frame using the movie_data.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(movie_data_top_1000, movie_data, <span class="at">by =</span> <span class="st">"Title"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>result_data <span class="ot">&lt;-</span> merged_data[<span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"Year.x"</span>, <span class="st">"Duration"</span>, <span class="st">"Rating"</span>, <span class="st">"Votes"</span>)]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(result_data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"Year"</span>, <span class="st">"Duration"</span>, <span class="st">"Rating"</span>, <span class="st">"Votes"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Title Year Duration Rating Votes
+1                Ahlat Agaci 2018      188    8.0 27000
+2  Ayla: The Daughter of War 2017      125    8.3 43000
+3             Babam ve Oglum 2005      108    8.2 91000
+4    Bir Zamanlar Anadolu'da 2011      157    7.8 49000
+5                     Eskiya 1996      128    8.1 72000
+6                   G.O.R.A. 2004      127    8.0 66000
+7   Her Sey Çok Güzel Olacak 1998      107    8.1 27000
+8                 Kis Uykusu 2014      196    8.0 55000
+9      Nefes: Vatan Sagolsun 2009      128    8.0 35000
+10                 Vizontele 2001      110    8.0 38000
+11  Yedinci Kogustaki Mucize 2019      132    8.2 54000</code></pre>
+</div>
+</div>
+<p><strong>Comparing The Top 11’s</strong></p>
+<p>Finally, let’s compare the top 11 Turkish films within the overall top 1000 with the top 11 films among all Turkish films.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>best_11_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(rating_list, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>best_11_ratings <span class="ot">&lt;-</span> rating_list[best_11_indices]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>best_11_titles <span class="ot">&lt;-</span> title_names[best_11_indices]</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>best_11_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Film =</span> best_11_titles,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> best_11_ratings</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(best_11_data, <span class="at">caption =</span> <span class="st">"Top 11 Film"</span>, <span class="at">format =</span> <span class="st">"html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Top 11 Film</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Film</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hababam Sinifi</td>
+<td style="text-align: right;">9.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CM101MMXI Fundamentals</td>
+<td style="text-align: right;">9.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tosun Pasa</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hababam Sinifi Sinifta Kaldi</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Süt Kardesler</td>
+<td style="text-align: right;">8.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saban Oglu Saban</td>
+<td style="text-align: right;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zügürt Aga</td>
+<td style="text-align: right;">8.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Neseli Günler</td>
+<td style="text-align: right;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kibar Feyzo</td>
+<td style="text-align: right;">8.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hababam Sinifi Uyaniyor</td>
+<td style="text-align: right;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Canim Kardesim</td>
+<td style="text-align: right;">8.6</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>The top 11 lists are different from each other. From this, we can understand that the ranking is not solely based on ratings, and the number of votes may be a factor in the ranking.</p>
+
+
+<!-- -->
+
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -439,6 +1805,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -601,7 +2018,284 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb23" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Assignment 2"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>**Creating Data Frame**</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>I placed Turkish films with more than 2500 votes into a data frame using the following codes.</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;release_date=2010-01-01,2023-10-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span>,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;release_date=,2009-12-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>url_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">URL =</span> url)</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>web_pages <span class="ot">&lt;-</span> <span class="fu">lapply</span>(url_df<span class="sc">$</span>URL, <span class="cf">function</span>(url) {</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>(url) </span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>title_names <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>  title_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'.ipc-title__text'</span>)</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>  titles <span class="ot">&lt;-</span> <span class="fu">html_text</span>(title_nodes)</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>  titles <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">s"</span>, <span class="st">""</span>, titles)</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>  titles <span class="ot">&lt;-</span> titles[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Advanced search|Recently viewed"</span>, titles)]</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(titles)</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>title_names <span class="ot">&lt;-</span> <span class="fu">unlist</span>(title_names, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(title_names)</span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a><span class="co"># year</span></span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>year_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>  year_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)'</span>)</span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>  year_names <span class="ot">&lt;-</span> <span class="fu">html_text</span>(year_nodes)</span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>  year_names <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">tail</span>(<span class="fu">head</span>(year_names, <span class="sc">-</span><span class="dv">1</span>), <span class="sc">-</span><span class="dv">1</span>))  </span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(year_names)</span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>year_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(year_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a><span class="co"># duration</span></span>
+<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>duration_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>  duration_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(2)'</span>)</span>
+<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a>  duration_values <span class="ot">&lt;-</span> <span class="fu">html_text</span>(duration_nodes)</span>
+<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>  saatDakikaToDakika <span class="ot">&lt;-</span> <span class="cf">function</span>(zaman) {</span>
+<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"h"</span>, zaman) <span class="sc">&amp;&amp;</span> <span class="fu">grepl</span>(<span class="st">"m"</span>, zaman)) {</span>
+<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>      parcalar <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(zaman, <span class="st">"h|m"</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(parcalar[<span class="dv">1</span>]) <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> <span class="fu">as.numeric</span>(parcalar[<span class="dv">2</span>]))</span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"h"</span>, zaman)) {</span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(zaman, <span class="st">"</span><span class="sc">\\</span><span class="st">d+(?=h)"</span>)) <span class="sc">*</span> <span class="dv">60</span>)</span>
+<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"m"</span>, zaman)) {</span>
+<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(zaman, <span class="st">"</span><span class="sc">\\</span><span class="st">d+(?=m)"</span>)))</span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="cn">NA</span>)</span>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>  veri_dakika <span class="ot">&lt;-</span> <span class="fu">sapply</span>(duration_values, saatDakikaToDakika)</span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">as.integer</span>(veri_dakika))</span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>duration_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(duration_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a><span class="co"># rating</span></span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>rating_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>  rating_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating'</span>)</span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>  rating_values <span class="ot">&lt;-</span> <span class="fu">html_text</span>(rating_nodes)</span>
+<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a>  numeric_ratings <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(rating_values, <span class="st">"</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.?</span><span class="sc">\\</span><span class="st">d*"</span>))</span>
+<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numeric_ratings)</span>
+<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>rating_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(rating_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a><span class="co"># votes</span></span>
+<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a>votes_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(web_pages, <span class="cf">function</span>(page) {</span>
+<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a>  votes_nodes <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.ipc-rating-star--voteCount'</span>)</span>
+<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a>  votes_values <span class="ot">&lt;-</span> <span class="fu">html_text</span>(votes_nodes)</span>
+<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a>  votes_without_K <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"K"</span>, <span class="st">""</span>, votes_values)</span>
+<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>  numeric_votes <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(votes_without_K, <span class="st">"</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.?</span><span class="sc">\\</span><span class="st">d*"</span>))</span>
+<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numeric_votes <span class="sc">*</span> <span class="dv">1000</span>)</span>
+<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a>votes_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(votes_list, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a>min_length <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">length</span>(title_names), <span class="fu">length</span>(year_list), <span class="fu">length</span>(duration_list), <span class="fu">length</span>(rating_list), <span class="fu">length</span>(votes_list))</span>
+<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a>movie_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">Title =</span> title_names[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> year_list[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a>  <span class="at">Duration =</span> duration_list[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> rating_list[<span class="dv">1</span><span class="sc">:</span>min_length],</span>
+<span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a>  <span class="at">Votes =</span> votes_list[<span class="dv">1</span><span class="sc">:</span>min_length]</span>
+<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movie_data)</span>
+<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a>**Finding Top and Bottom 5 Films**</span>
+<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a>Let's find the top 5 films in the list.</span>
+<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a>best_5_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(rating_list, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a>best_5_ratings <span class="ot">&lt;-</span> rating_list[best_5_indices]</span>
+<span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a>best_5_titles <span class="ot">&lt;-</span> title_names[best_5_indices]</span>
+<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a>best_5_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a>  <span class="at">Film =</span> best_5_titles,</span>
+<span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> best_5_ratings</span>
+<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-131"><a href="#cb23-131" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(best_5_data, <span class="at">caption =</span> <span class="st">"Top 5 Film"</span>, <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb23-132"><a href="#cb23-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-134"><a href="#cb23-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a>It seems that Yeşilçam films are very popular. I like them,too.</span>
+<span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a>Now, let's find the bottom 5 film.</span>
+<span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a>worst_5_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(rating_list, <span class="at">decreasing =</span> <span class="cn">FALSE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a>worst_5_ratings <span class="ot">&lt;-</span> rating_list[worst_5_indices]</span>
+<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a>worst_5_titles <span class="ot">&lt;-</span> title_names[worst_5_indices]</span>
+<span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a>worst_5_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a>  <span class="at">Film =</span> worst_5_titles,</span>
+<span id="cb23-151"><a href="#cb23-151" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> worst_5_ratings</span>
+<span id="cb23-152"><a href="#cb23-152" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(worst_5_data, <span class="at">caption =</span> <span class="st">"Bottom 5 Film"</span>, <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a>I haven't even heard the names of these films. I guess that alone is reason enough for them to be in the bottom 5.</span>
+<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a>**Checking Favorite Films**</span>
+<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a>One of my favorite Turkish film is G.O.R.A from Cem Yılmaz. I expect it to have a high rating.</span>
+<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a>gora_rating <span class="ot">&lt;-</span> movie_data<span class="sc">$</span>Rating[movie_data<span class="sc">$</span>Title <span class="sc">==</span> <span class="st">'G.O.R.A.'</span>]</span>
+<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(gora_rating[<span class="sc">!</span><span class="fu">is.na</span>(gora_rating)]) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"IMDb Rating for G.O.R.A.:"</span>, gora_rating[<span class="sc">!</span><span class="fu">is.na</span>(gora_rating)]))</span>
+<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"IMDb Rating for G.O.R.A. not available."</span>)</span>
+<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a>My prediction came true. 8 is quite a high rating.</span>
+<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a>**Finding Average Rating for Each Year**</span>
+<span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-184"><a href="#cb23-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a>ratings_by_year <span class="ot">&lt;-</span> movie_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-189"><a href="#cb23-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb23-190"><a href="#cb23-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">AverageRating =</span> <span class="fu">mean</span>(Rating))</span>
+<span id="cb23-191"><a href="#cb23-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-192"><a href="#cb23-192" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ratings_by_year, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> AverageRating)) <span class="sc">+</span></span>
+<span id="cb23-193"><a href="#cb23-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb23-194"><a href="#cb23-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-195"><a href="#cb23-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Avarege Rating For Each Year"</span>,</span>
+<span id="cb23-196"><a href="#cb23-196" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb23-197"><a href="#cb23-197" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Rating"</span>) <span class="sc">+</span></span>
+<span id="cb23-198"><a href="#cb23-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb23-199"><a href="#cb23-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-200"><a href="#cb23-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-201"><a href="#cb23-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-202"><a href="#cb23-202" aria-hidden="true" tabindex="-1"></a>The film ratings vary significantly from year to year.</span>
+<span id="cb23-203"><a href="#cb23-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-204"><a href="#cb23-204" aria-hidden="true" tabindex="-1"></a>**Corelation Between Votes and Rating**</span>
+<span id="cb23-205"><a href="#cb23-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-208"><a href="#cb23-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-209"><a href="#cb23-209" aria-hidden="true" tabindex="-1"></a>correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(movie_data<span class="sc">$</span>Votes, movie_data<span class="sc">$</span>Rating)</span>
+<span id="cb23-210"><a href="#cb23-210" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(correlation)</span>
+<span id="cb23-211"><a href="#cb23-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-212"><a href="#cb23-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-213"><a href="#cb23-213" aria-hidden="true" tabindex="-1"></a>Correlation is a value between 0 and 1. If there is a correlation, the value tends to be close to 1, while in the absence of correlation, the value is close to 0. Our value is very close to 0, indicating that there is no correlation between votes and rating. The result makes perfect sense.</span>
+<span id="cb23-214"><a href="#cb23-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-215"><a href="#cb23-215" aria-hidden="true" tabindex="-1"></a>**Corelation Between Duration and Ratings**</span>
+<span id="cb23-216"><a href="#cb23-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-219"><a href="#cb23-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-220"><a href="#cb23-220" aria-hidden="true" tabindex="-1"></a>correlation_duration_rating <span class="ot">&lt;-</span> <span class="fu">cor</span>(movie_data<span class="sc">$</span>Duration, movie_data<span class="sc">$</span>Rating)</span>
+<span id="cb23-221"><a href="#cb23-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(correlation_duration_rating)</span>
+<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a>Our value is very close to 0, indicating that there is no correlation between duration and rating. The result makes perfect sense.</span>
+<span id="cb23-226"><a href="#cb23-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-227"><a href="#cb23-227" aria-hidden="true" tabindex="-1"></a>**Turkish Movies in Top 1000**</span>
+<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-229"><a href="#cb23-229" aria-hidden="true" tabindex="-1"></a>Let's create a data frame for this.</span>
+<span id="cb23-230"><a href="#cb23-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-233"><a href="#cb23-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-234"><a href="#cb23-234" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb23-235"><a href="#cb23-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-236"><a href="#cb23-236" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;groups=top_1000&amp;country_of_origin=TR"</span></span>
+<span id="cb23-237"><a href="#cb23-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-238"><a href="#cb23-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-239"><a href="#cb23-239" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
+<span id="cb23-240"><a href="#cb23-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-241"><a href="#cb23-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-242"><a href="#cb23-242" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'.ipc-title__text'</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb23-243"><a href="#cb23-243" aria-hidden="true" tabindex="-1"></a>years_data <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">'span.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)'</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb23-244"><a href="#cb23-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-245"><a href="#cb23-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-246"><a href="#cb23-246" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">&lt;-</span> <span class="fu">tail</span>(<span class="fu">head</span>(titles, <span class="sc">-</span><span class="dv">1</span>), <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb23-247"><a href="#cb23-247" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">s"</span>, <span class="st">""</span>, titles)  </span>
+<span id="cb23-248"><a href="#cb23-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-249"><a href="#cb23-249" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(years_data)</span>
+<span id="cb23-250"><a href="#cb23-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-251"><a href="#cb23-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-252"><a href="#cb23-252" aria-hidden="true" tabindex="-1"></a>movie_data_top_1000 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-253"><a href="#cb23-253" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Title'</span> <span class="ot">=</span> titles,</span>
+<span id="cb23-254"><a href="#cb23-254" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Year'</span> <span class="ot">=</span> years</span>
+<span id="cb23-255"><a href="#cb23-255" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-257"><a href="#cb23-257" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movie_data_top_1000)</span>
+<span id="cb23-258"><a href="#cb23-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-259"><a href="#cb23-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-260"><a href="#cb23-260" aria-hidden="true" tabindex="-1"></a>Now, let's fill in the missing information in the new data frame using the movie_data.</span>
+<span id="cb23-261"><a href="#cb23-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-264"><a href="#cb23-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-265"><a href="#cb23-265" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(movie_data_top_1000, movie_data, <span class="at">by =</span> <span class="st">"Title"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-267"><a href="#cb23-267" aria-hidden="true" tabindex="-1"></a>result_data <span class="ot">&lt;-</span> merged_data[<span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"Year.x"</span>, <span class="st">"Duration"</span>, <span class="st">"Rating"</span>, <span class="st">"Votes"</span>)]</span>
+<span id="cb23-268"><a href="#cb23-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-269"><a href="#cb23-269" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(result_data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"Year"</span>, <span class="st">"Duration"</span>, <span class="st">"Rating"</span>, <span class="st">"Votes"</span>)</span>
+<span id="cb23-270"><a href="#cb23-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-271"><a href="#cb23-271" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result_data)</span>
+<span id="cb23-272"><a href="#cb23-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-273"><a href="#cb23-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-274"><a href="#cb23-274" aria-hidden="true" tabindex="-1"></a>**Comparing The Top 11's**</span>
+<span id="cb23-275"><a href="#cb23-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-276"><a href="#cb23-276" aria-hidden="true" tabindex="-1"></a>Finally, let's compare the top 11 Turkish films within the overall top 1000 with the top 11 films among all Turkish films.</span>
+<span id="cb23-277"><a href="#cb23-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-280"><a href="#cb23-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-281"><a href="#cb23-281" aria-hidden="true" tabindex="-1"></a>best_11_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(rating_list, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>]</span>
+<span id="cb23-282"><a href="#cb23-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-283"><a href="#cb23-283" aria-hidden="true" tabindex="-1"></a>best_11_ratings <span class="ot">&lt;-</span> rating_list[best_11_indices]</span>
+<span id="cb23-284"><a href="#cb23-284" aria-hidden="true" tabindex="-1"></a>best_11_titles <span class="ot">&lt;-</span> title_names[best_11_indices]</span>
+<span id="cb23-285"><a href="#cb23-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-286"><a href="#cb23-286" aria-hidden="true" tabindex="-1"></a>best_11_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-287"><a href="#cb23-287" aria-hidden="true" tabindex="-1"></a>  <span class="at">Film =</span> best_11_titles,</span>
+<span id="cb23-288"><a href="#cb23-288" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rating =</span> best_11_ratings</span>
+<span id="cb23-289"><a href="#cb23-289" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-290"><a href="#cb23-290" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(best_11_data, <span class="at">caption =</span> <span class="st">"Top 11 Film"</span>, <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb23-291"><a href="#cb23-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-292"><a href="#cb23-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-293"><a href="#cb23-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-294"><a href="#cb23-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-295"><a href="#cb23-295" aria-hidden="true" tabindex="-1"></a>The top 11 lists are different from each other. From this, we can understand that the ranking is not solely based on ratings, and the number of votes may be a factor in the ranking.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
