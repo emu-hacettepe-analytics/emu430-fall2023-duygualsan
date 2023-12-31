@@ -41,7 +41,6 @@ data("admissions")
 no_example <- ifelse(is.na(na_example), 0, na_example)
 
 
-
 ```
 
 **Na_Example:**
